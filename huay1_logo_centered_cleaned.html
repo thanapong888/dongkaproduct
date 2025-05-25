@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>รวมเซียนหวย - บ้านรวยทรัพย์</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #e6f7ff;
+            color: #333;
+        }
+        
+        .lottery-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border: 1px solid #a0d2eb;
+            cursor: pointer;
+        }
+        
+        .lottery-card:active {
+            transform: scale(0.98);
+        }
+        
+        .prize-number {
+            letter-spacing: 2px;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .date-badge {
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expert-card {
+            border: 1px solid #a0d2eb;
+            background: linear-gradient(145deg, #f0f9ff, #e6f7ff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expert-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .expert-btn.active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .expert-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            display: none;
+        }
+        
+        .expert-content.active {
+            max-height: 500px;
+            display: block;
+        }
+        
+        .blue-gradient {
+            background: linear-gradient(to right, #3498db, #2980b9);
+        }
+        
+        .line-btn {
+            background-color: #06C755;
+            transition: all 0.3s ease;
+        }
+        
+        .line-btn:hover {
+            background-color: #05a849;
+            transform: translateY(-2px);
+        }
+        
+        .line-btn:active {
+            transform: translateY(0);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(6, 199, 85, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(6, 199, 85, 0);
+            }
+        }
+        
+        /* Expert tabs for mobile */
+        .expert-tabs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        @media (min-width: 640px) {
+            .expert-tabs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .expert-tabs {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="sticky top-0 z-10 bg-gradient-to-r from-blue-400 to-blue-600 text-white p-4 shadow-md">
+<div class="container mx-auto flex items-center"><div><h1 class="text-2xl font-bold">รวมเซียนหวยจากสำนักต่างๆไว้ในที่เดียว</h1><p class="text-sm opacity-90">by บ้านรวยทรัพย์</p></div></div>
+</header>
+<main class="container mx-auto px-4 py-6">
+<!-- เซียนหวย Section -->
+<section class="mb-8">
+<div class="flex justify-center my-6"><img alt="Logo" class="h-32 md:h-48" src="https://i.postimg.cc/qByqhnQt/animalpicture998.png"/></div><h2 class="text-xl font-bold mb-4 text-blue-700 text-center">รวมเซียนหวยชื่อดัง</h2>
+<div class="mb-4">
+<!-- Changed to grid layout for mobile -->
+<div class="expert-tabs">
+<button class="expert-btn px-3 py-2 rounded-lg bg-white border border-blue-400 text-blue-600 font-medium active text-sm md:text-base" id="expert-btn-0">
+                        อาจารย์ธนนท์
+                    </button>
+<button class="expert-btn px-3 py-2 rounded-lg bg-white border border-blue-400 text-blue-600 font-medium text-sm md:text-base" id="expert-btn-1">
+                        เฮียพูนทรัพย์
+                    </button>
+<button class="expert-btn px-3 py-2 rounded-lg bg-white border border-blue-400 text-blue-600 font-medium text-sm md:text-base" id="expert-btn-2">
+                        ป้าสมหวัง
+                    </button>
+<button class="expert-btn px-3 py-2 rounded-lg bg-white border border-blue-400 text-blue-600 font-medium text-sm md:text-base" id="expert-btn-3">
+                        หลวงพ่อเลขเด็ด
+                    </button>
+<button class="expert-btn px-3 py-2 rounded-lg bg-white border border-blue-400 text-blue-600 font-medium text-sm md:text-base" id="expert-btn-4">
+                        อาจารย์ดัง
+                    </button>
+<button class="expert-btn px-3 py-2 rounded-lg bg-white border border-blue-400 text-blue-600 font-medium text-sm md:text-base" id="expert-btn-5">
+                        แม่น้ำหนึ่ง
+                    </button>
+</div>
+</div>
+<div class="expert-content-container">
+<!-- อาจารย์ธนนท์ -->
+<div class="expert-content active" id="expert-content-0">
+<div class="expert-card p-4 rounded-lg">
+<div class="flex items-center mb-3">
+<div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center mr-3">
+<span class="text-xl font-bold text-white">อ.</span>
+</div>
+<div>
+<h3 class="font-bold text-red-700">อาจารย์ธนนท์</h3>
+<p class="text-xs text-gray-600">เซียนหวยอันดับ 1 แห่งเมืองไทย</p>
+</div>
+</div>
+<p class="text-sm mb-3">อาจารย์ธนนท์ ผู้เชี่ยวชาญด้านการคำนวณตัวเลขจากดวงดาว ให้เลขเด็ดมาแล้วถูกรางวัลที่ 1 มากกว่า 20 งวด ด้วยสูตรเฉพาะตัวที่ไม่เหมือนใคร</p>
+<div class="mt-2 p-3 bg-red-50 rounded-md border border-red-200">
+<h4 class="text-sm font-semibold text-red-700 mb-2">เลขเด็ดงวดนี้:</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-white p-2 rounded text-center border border-red-300">
+<span class="font-bold text-red-600">09-90</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-red-300">
+<span class="font-bold text-red-600">37-73</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-red-300">
+<span class="font-bold text-red-600">64-46</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">อัพเดทล่าสุด: 2 พฤษภาคม 2568</p>
+</div>
+</div>
+</div>
+<!-- เฮียพูนทรัพย์ -->
+<div class="expert-content" id="expert-content-1">
+<div class="expert-card p-4 rounded-lg">
+<div class="flex items-center mb-3">
+<div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mr-3">
+<span class="text-xl font-bold text-white">เฮีย</span>
+</div>
+<div>
+<h3 class="font-bold text-blue-700">เฮียพูนทรัพย์</h3>
+<p class="text-xs text-gray-600">แม่นยำ 90% ในรอบ 3 ปี</p>
+</div>
+</div>
+<p class="text-sm mb-3">เซียนหวยอันดับ 1 ของเมืองไทย เจาะเลขเด็ดงวดนี้ได้แม่นยำ ให้เลขมาแล้วถูกรางวัลที่ 1 มากกว่า 15 งวด</p>
+<div class="mt-2 p-3 bg-blue-50 rounded-md border border-blue-200">
+<h4 class="text-sm font-semibold text-blue-700 mb-2">เลขเด็ดงวดนี้:</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-white p-2 rounded text-center border border-blue-300">
+<span class="font-bold text-blue-600">16-61</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-blue-300">
+<span class="font-bold text-blue-600">28-82</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-blue-300">
+<span class="font-bold text-blue-600">53-35</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">อัพเดทล่าสุด: 1 พฤษภาคม 2568</p>
+</div>
+</div>
+</div>
+<!-- ป้าสมหวัง -->
+<div class="expert-content" id="expert-content-2">
+<div class="expert-card p-4 rounded-lg">
+<div class="flex items-center mb-3">
+<div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center mr-3">
+<span class="text-xl font-bold text-white">ป้า</span>
+</div>
+<div>
+<h3 class="font-bold text-purple-700">ป้าสมหวัง</h3>
+<p class="text-xs text-gray-600">เซียนหวยวัดดัง</p>
+</div>
+</div>
+<p class="text-sm mb-3">ป้าสมหวังผู้มีดวงตาทิพย์ สามารถมองเห็นตัวเลขจากความฝัน ให้โชคลาภมาแล้วกว่า 10 ปี</p>
+<div class="mt-2 p-3 bg-purple-50 rounded-md border border-purple-200">
+<h4 class="text-sm font-semibold text-purple-700 mb-2">เลขเด็ดงวดนี้:</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-white p-2 rounded text-center border border-purple-300">
+<span class="font-bold text-purple-600">07-70</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-purple-300">
+<span class="font-bold text-purple-600">42-24</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-purple-300">
+<span class="font-bold text-purple-600">99-66</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">อัพเดทล่าสุด: 30 เมษายน 2568</p>
+</div>
+</div>
+</div>
+<!-- หลวงพ่อเลขเด็ด -->
+<div class="expert-content" id="expert-content-3">
+<div class="expert-card p-4 rounded-lg">
+<div class="flex items-center mb-3">
+<div class="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center mr-3">
+<span class="text-xl font-bold text-white">หลวง</span>
+</div>
+<div>
+<h3 class="font-bold text-amber-700">หลวงพ่อเลขเด็ด</h3>
+<p class="text-xs text-gray-600">เจ้าของสูตรคำนวณเลขวิเศษ</p>
+</div>
+</div>
+<p class="text-sm mb-3">ผู้คิดค้นสูตรคำนวณตัวเลขจากดวงดาว ให้เลขเด็ดมาแล้วกว่า 200 งวด ถูกรางวัลมาแล้วหลายสิบล้าน</p>
+<div class="mt-2 p-3 bg-amber-50 rounded-md border border-amber-200">
+<h4 class="text-sm font-semibold text-amber-700 mb-2">เลขเด็ดงวดนี้:</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-white p-2 rounded text-center border border-amber-300">
+<span class="font-bold text-amber-600">13-31</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-amber-300">
+<span class="font-bold text-amber-600">56-65</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-amber-300">
+<span class="font-bold text-amber-600">89-98</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">อัพเดทล่าสุด: 29 เมษายน 2568</p>
+</div>
+</div>
+</div>
+<!-- อาจารย์ดัง -->
+<div class="expert-content" id="expert-content-4">
+<div class="expert-card p-4 rounded-lg">
+<div class="flex items-center mb-3">
+<div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-3">
+<span class="text-xl font-bold text-white">อ.</span>
+</div>
+<div>
+<h3 class="font-bold text-green-700">อาจารย์ดัง</h3>
+<p class="text-xs text-gray-600">ผู้เชี่ยวชาญด้านโหราศาสตร์</p>
+</div>
+</div>
+<p class="text-sm mb-3">อาจารย์ดังผู้เชี่ยวชาญด้านโหราศาสตร์และไพ่ยิปซี สามารถทำนายเลขเด็ดได้แม่นยำสูง</p>
+<div class="mt-2 p-3 bg-green-50 rounded-md border border-green-200">
+<h4 class="text-sm font-semibold text-green-700 mb-2">เลขเด็ดงวดนี้:</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-white p-2 rounded text-center border border-green-300">
+<span class="font-bold text-green-600">23-32</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-green-300">
+<span class="font-bold text-green-600">47-74</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-green-300">
+<span class="font-bold text-green-600">91-19</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">อัพเดทล่าสุด: 28 เมษายน 2568</p>
+</div>
+</div>
+</div>
+<!-- แม่น้ำหนึ่ง -->
+<div class="expert-content" id="expert-content-5">
+<div class="expert-card p-4 rounded-lg">
+<div class="flex items-center mb-3">
+<div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center mr-3">
+<span class="text-xl font-bold text-white">แม่</span>
+</div>
+<div>
+<h3 class="font-bold text-pink-700">แม่น้ำหนึ่ง</h3>
+<p class="text-xs text-gray-600">หมอดูชื่อดังจากภาคเหนือ</p>
+</div>
+</div>
+<p class="text-sm mb-3">แม่น้ำหนึ่งผู้มีพรสวรรค์ในการทำนายตัวเลข จากการตีความฝันและสัญลักษณ์ต่างๆ</p>
+<div class="mt-2 p-3 bg-pink-50 rounded-md border border-pink-200">
+<h4 class="text-sm font-semibold text-pink-700 mb-2">เลขเด็ดงวดนี้:</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-white p-2 rounded text-center border border-pink-300">
+<span class="font-bold text-pink-600">05-50</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-pink-300">
+<span class="font-bold text-pink-600">27-72</span>
+</div>
+<div class="bg-white p-2 rounded text-center border border-pink-300">
+<span class="font-bold text-pink-600">84-48</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">อัพเดทล่าสุด: 27 เมษายน 2568</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LINE Group Join Section -->
+<section class="mb-8">
+<div class="bg-white rounded-lg shadow-md p-4 border border-blue-200">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-[#06C755] flex items-center justify-center mb-3">
+<svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M27.0001 13.8666C27.0001 8.44659 21.6267 4.06659 15.0001 4.06659C8.37341 4.06659 3.00008 8.44659 3.00008 13.8666C3.00008 18.6666 7.10675 22.6666 12.6667 23.5333C13.1334 23.6666 13.8001 23.9333 13.9334 24.3333C14.0667 24.7333 14.0001 25.3999 13.9334 25.7999C13.9334 25.7999 13.7334 26.7333 13.6667 26.9999C13.5334 27.4666 13.2001 28.7999 15.0001 27.9999C16.8001 27.1999 22.8667 23.3999 25.3334 20.2666C26.9334 18.3999 27.0001 16.1333 27.0001 13.8666Z" fill="white"></path>
+<path d="M13.3999 11.6667H12.1999C11.9999 11.6667 11.7999 11.8667 11.7999 12.0667V16.4C11.7999 16.6 11.9999 16.8 12.1999 16.8H13.3999C13.5999 16.8 13.7999 16.6 13.7999 16.4V12.0667C13.7999 11.8667 13.5999 11.6667 13.3999 11.6667Z" fill="#06C755"></path>
+<path d="M17.9999 11.6667H16.7999C16.5999 11.6667 16.3999 11.8667 16.3999 12.0667V14.4667L14.5332 12.0667C14.5332 12.0667 14.5332 12.0667 14.4666 12C14.4666 12 14.4666 12 14.3999 11.9333C14.3999 11.9333 14.3999 11.9333 14.3332 11.9333C14.3332 11.9333 14.3332 11.9333 14.2666 11.9333C14.2666 11.9333 14.2666 11.9333 14.1999 11.9333C14.1999 11.9333 14.1332 11.9333 14.1332 11.9333C14.1332 11.9333 14.0666 11.9333 14.0666 11.9333H12.9332C12.7332 11.9333 12.5332 12.1333 12.5332 12.3333V16.6667C12.5332 16.8667 12.7332 17.0667 12.9332 17.0667H14.1332C14.3332 17.0667 14.5332 16.8667 14.5332 16.6667V14.2667L16.3999 16.6667C16.4666 16.7333 16.4666 16.7333 16.5332 16.7333C16.5332 16.7333 16.5332 16.7333 16.5999 16.8C16.5999 16.8 16.6666 16.8 16.6666 16.8C16.6666 16.8 16.6666 16.8 16.7332 16.8C16.7332 16.8 16.7332 16.8 16.7999 16.8C16.7999 16.8 16.8666 16.8 16.8666 16.8H17.9999C18.1999 16.8 18.3999 16.6 18.3999 16.4V12.0667C18.3999 11.8667 18.1999 11.6667 17.9999 11.6667Z" fill="#06C755"></path>
+<path d="M10.3999 15.6H8.39992V12.0667C8.39992 11.8667 8.19992 11.6667 7.99992 11.6667H6.79992C6.59992 11.6667 6.39992 11.8667 6.39992 12.0667V16.4V16.4667C6.39992 16.5333 6.39992 16.5333 6.39992 16.6C6.39992 16.6 6.39992 16.6 6.39992 16.6667C6.39992 16.6667 6.39992 16.6667 6.46659 16.7333C6.46659 16.7333 6.46659 16.7333 6.53325 16.8C6.53325 16.8 6.53325 16.8 6.59992 16.8C6.59992 16.8 6.59992 16.8 6.66659 16.8H10.3999C10.5999 16.8 10.7999 16.6 10.7999 16.4V16C10.7999 15.8 10.5999 15.6 10.3999 15.6Z" fill="#06C755"></path>
+<path d="M21.8667 13.6667C22.0667 13.6667 22.2667 13.4667 22.2667 13.2667V12.0667C22.2667 11.8667 22.0667 11.6667 21.8667 11.6667H19.0667H19C18.9333 11.6667 18.9333 11.6667 18.8667 11.6667C18.8667 11.6667 18.8667 11.6667 18.8 11.6667C18.8 11.6667 18.8 11.6667 18.7333 11.7333C18.7333 11.7333 18.7333 11.7333 18.6667 11.8C18.6667 11.8 18.6667 11.8 18.6667 11.8667C18.6667 11.8667 18.6667 11.8667 18.6667 11.9333V16.2667V16.3333C18.6667 16.4 18.6667 16.4 18.6667 16.4667C18.6667 16.4667 18.6667 16.4667 18.6667 16.5333C18.6667 16.5333 18.6667 16.5333 18.7333 16.6C18.7333 16.6 18.7333 16.6 18.8 16.6667C18.8 16.6667 18.8 16.6667 18.8667 16.6667C18.8667 16.6667 18.8667 16.6667 18.9333 16.6667H19H21.8667C22.0667 16.6667 22.2667 16.4667 22.2667 16.2667V15.0667C22.2667 14.8667 22.0667 14.6667 21.8667 14.6667H20.6667V14H21.8667C22.0667 14 22.2667 13.8 22.2667 13.6V13.6667H21.8667V13.6667ZM20.6667 15.6667H19.8667V15H20.6667V15.6667ZM20.6667 13.0667H19.8667V12.6667H20.6667V13.0667Z" fill="#06C755"></path>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-center mb-2">เข้ากลุ่มเซียนหวยอัพเดตทุกวัน</h3>
+<p class="text-sm text-gray-600 text-center mb-4">รับเลขเด็ดจากเซียนหวยชื่อดังทั่วประเทศ อัพเดตทุกวัน ฟรี!</p>
+<a class="line-btn pulse-animation w-full py-3 rounded-lg text-white font-bold flex items-center justify-center shadow-md" href="https://line.me/R/ti/g/76hqYKDc3D" target="_blank">
+<svg class="w-6 h-6 mr-2" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path>
+</svg>
+                        เข้ากลุ่มไลน์เซียนหวย
+                    </a>
+</div>
+</div>
+</section>
+<h2 class="text-xl font-bold mb-4 text-blue-700 text-center">ผลหวยย้อนหลัง</h2>
+<!-- 2 พฤษภาคม 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('may2')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">2 พฤษภาคม 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="may2-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="may2-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="may2-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">213388</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">826</span>
+<span class="prize-number text-xl font-semibold text-blue-600">116</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">167</span>
+<span class="prize-number text-xl font-semibold text-blue-600">662</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">06</p>
+</div>
+</div>
+</div>
+<!-- 16 เมษายน 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('apr16')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">16 เมษายน 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="apr16-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="apr16-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="apr16-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">266227</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">413</span>
+<span class="prize-number text-xl font-semibold text-blue-600">254</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">474</span>
+<span class="prize-number text-xl font-semibold text-blue-600">760</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">85</p>
+</div>
+</div>
+</div>
+<!-- 1 เมษายน 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('apr1')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">1 เมษายน 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="apr1-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="apr1-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="apr1-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">669687</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">635</span>
+<span class="prize-number text-xl font-semibold text-blue-600">760</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">180</span>
+<span class="prize-number text-xl font-semibold text-blue-600">666</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">36</p>
+</div>
+</div>
+</div>
+<!-- 16 มีนาคม 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('mar16')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">16 มีนาคม 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="mar16-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="mar16-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="mar16-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">757563</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">595</span>
+<span class="prize-number text-xl font-semibold text-blue-600">927</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">457</span>
+<span class="prize-number text-xl font-semibold text-blue-600">309</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">32</p>
+</div>
+</div>
+</div>
+<!-- 1 มีนาคม 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('mar1')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">1 มีนาคม 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="mar1-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="mar1-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="mar1-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">818894</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">139</span>
+<span class="prize-number text-xl font-semibold text-blue-600">530</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">781</span>
+<span class="prize-number text-xl font-semibold text-blue-600">656</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">54</p>
+</div>
+</div>
+</div>
+<!-- 16 กุมภาพันธ์ 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('feb16')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">16 กุมภาพันธ์ 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="feb16-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="feb16-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="feb16-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">847377</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">268</span>
+<span class="prize-number text-xl font-semibold text-blue-600">613</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">652</span>
+<span class="prize-number text-xl font-semibold text-blue-600">001</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">50</p>
+</div>
+</div>
+</div>
+<!-- 1 กุมภาพันธ์ 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('feb1')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">1 กุมภาพันธ์ 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="feb1-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="feb1-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="feb1-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">558700</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">285</span>
+<span class="prize-number text-xl font-semibold text-blue-600">418</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">824</span>
+<span class="prize-number text-xl font-semibold text-blue-600">685</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">51</p>
+</div>
+</div>
+</div>
+<!-- 17 มกราคม 2568 -->
+<div class="lottery-card bg-white mb-4 overflow-hidden" onclick="toggleDetails('jan17')">
+<div class="bg-gradient-to-r from-blue-400 to-blue-500 p-3">
+<div class="flex justify-between items-center">
+<span class="date-badge bg-white text-blue-600 px-3 py-1 text-sm font-medium">17 มกราคม 2568</span>
+<button class="text-white text-sm flex items-center">
+<span id="jan17-text">ดูผลรางวัล</span>
+<svg class="h-4 w-4 ml-1" fill="none" id="jan17-icon" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hidden p-4" id="jan17-details">
+<div class="mb-4">
+<h3 class="text-sm text-gray-500 mb-1">รางวัลที่ 1</h3>
+<p class="prize-number text-3xl font-bold text-center text-blue-600">807779</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขหน้า 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">961</span>
+<span class="prize-number text-xl font-semibold text-blue-600">699</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 3 ตัว</h3>
+<div class="flex justify-around">
+<span class="prize-number text-xl font-semibold text-blue-600">448</span>
+<span class="prize-number text-xl font-semibold text-blue-600">477</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">23</p>
+</div>
+<div>
+<h3 class="text-sm text-gray-500 mb-1">เลขท้าย 2 ตัว</h3>
+<p class="prize-number text-2xl font-bold text-center text-blue-600">36</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Toggle lottery details
+        function toggleDetails(id) {
+            const details = document.getElementById(`${id}-details`);
+            const text = document.getElementById(`${id}-text`);
+            const icon = document.getElementById(`${id}-icon`);
+            
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                text.textContent = 'ซ่อนผลรางวัล';
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />';
+            } else {
+                details.classList.add('hidden');
+                text.textContent = 'ดูผลรางวัล';
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />';
+            }
+        }
+
+        // Expert tabs functionality
+        const expertButtons = document.querySelectorAll('.expert-btn');
+        const expertContents = document.querySelectorAll('.expert-content');
+        
+        expertButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                expertButtons.forEach(btn => btn.classList.remove('active'));
+                expertContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(`expert-content-${index}`).classList.add('active');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'944ad06c51214b65',t:'MTc0ODA2ODk1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
