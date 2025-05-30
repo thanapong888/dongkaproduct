@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANG DONGKA Products</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANG DONGKA Products</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9fafb;
@@ -31,8 +32,19 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-  </style>
-  <script>
+  
+.carousel-images::-webkit-scrollbar {
+  display: none;
+}
+.carousel-images {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-images::-webkit-scrollbar { display: none; }
+.carousel-images { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+<script>
     function openTab(evt, tabName) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
@@ -59,366 +71,818 @@
   </script>
 </head>
 <body class="py-12 fade-in" style="background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0);">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="mb-6">
-      <a href="http://www.angdongka.co.th/" class="text-sm bg-[#0c4a6e] text-white px-4 py-2 rounded hover:bg-[#0a3a56] transition">← Back to Main Website</a>
-    </div>
-
-    <h2 class="text-4xl text-center font-bold text-gray-900 mb-4">ANG DONGKA (THAILAND) CO., LTD.</h2>
-    <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
+<div class="max-w-7xl mx-auto px-4">
+<div class="mb-6">
+<a class="text-sm bg-[#0c4a6e] text-white px-4 py-2 rounded hover:bg-[#0a3a56] transition" href="http://www.angdongka.co.th/">← Back to Main Website</a>
+</div>
+<h2 class="text-4xl text-center font-bold text-gray-900 mb-4">ANG DONGKA (THAILAND) CO., LTD.</h2>
+<p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
       We specialize in exporting high-quality Thai products to the global market. Our mission is to deliver excellence through innovation, natural ingredients, and traditional expertise.
     </p>
+<div class="tab flex justify-center mb-8 flex-wrap gap-4">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Body')">Body Supports</button>
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Skincare')">Natural Skincare Products</button>
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Soap')">Natural SOAP</button>
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream')">Natural Hand Cream</button>
+</div>
+<div class="tabcontent hidden" id="Body">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 4</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
 
-    <div class="tab flex justify-center mb-8 flex-wrap gap-4">
-      <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Body')">Body Supports</button>
-      <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Skincare')">Natural Skincare Products</button>
-      <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Soap')">Natural SOAP</button>
-      <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream')">Natural Hand Cream</button>
-    </div>
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
 
-    <div id="Body" class="tabcontent hidden">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 5</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
 
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 1" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 1</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 2" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 2</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 3" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 3</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 4" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 4</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 5" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 5</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 6" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 6</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 7" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 7</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 8" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 8</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 9" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 9</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 10" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 10</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 11" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 11</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 12" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 12</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 13" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 13</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 14" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 14</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 15" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 15</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 16" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 16</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 17" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 17</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 18" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 18</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Body Support Product 19" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Body Support Product 19</h4>
-            <p class="text-sm text-gray-600">Support product description.</p>
-          </div>
-        </div>
-    
-      </div>
-    </div>
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
 
-    <div id="Skincare" class="tabcontent hidden">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 6</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
 
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 1" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 1</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 2" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 2</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 3" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 3</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 4" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 4</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 5" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 5</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 6" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 6</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 7" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 7</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 8" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 8</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 9" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 9</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 10" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 10</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 11" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 11</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 12" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 12</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 13" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 13</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 14" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 14</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Skincare Product 15" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Skincare Product 15</h4>
-            <p class="text-sm text-gray-600">Skincare product description.</p>
-          </div>
-        </div>
-    
-      </div>
-    </div>
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
 
-    <div id="Soap" class="tabcontent hidden">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 7</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
 
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Soap Product 1" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Soap Product 1</h4>
-            <p class="text-sm text-gray-600">Soap product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Soap Product 2" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Soap Product 2</h4>
-            <p class="text-sm text-gray-600">Soap product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Soap Product 3" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Soap Product 3</h4>
-            <p class="text-sm text-gray-600">Soap product description.</p>
-          </div>
-        </div>
-    
-      </div>
-    </div>
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
 
-    <div id="HandCream" class="tabcontent hidden">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 8</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
 
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Hand Cream Product 1" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Hand Cream Product 1</h4>
-            <p class="text-sm text-gray-600">Hand cream product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Hand Cream Product 2" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Hand Cream Product 2</h4>
-            <p class="text-sm text-gray-600">Hand cream product description.</p>
-          </div>
-        </div>
-    
-        <div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
-          <img src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png" alt="Hand Cream Product 3" class="w-full aspect-square object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-gray-900">Hand Cream Product 3</h4>
-            <p class="text-sm text-gray-600">Hand cream product description.</p>
-          </div>
-        </div>
-    
-      </div>
-    </div>
-  </div>
-</body>
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 9</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 10</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 11</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 12</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 13</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 14</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 15</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 16</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 17</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 18</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Body Support Product 19</h4>
+<p class="text-sm text-gray-600">Support product description.</p>
+
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">Sizes:</span>
+<ul class="list-disc list-inside">
+<li>S 26-30″</li>
+<li>M 30-34″</li>
+<li>L 34-38″</li>
+<li>XL 38-42″</li>
+<li>2XL 42-50″</li>
+<li>3XL 50-56″</li>
+<li>4XL 56-60″</li>
+</ul>
+</div>
+
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">Colors:</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300"></span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="Skincare">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 1" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 1</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 2" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 2</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 3" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 3</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 4" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 4</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 5" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 5</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 6" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 6</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 7" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 7</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 8" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 8</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 9" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 9</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 10" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 10</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 11" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 11</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 12" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 12</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 13" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 13</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 14" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 14</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Skincare Product 15" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Skincare Product 15</h4>
+<p class="text-sm text-gray-600">Skincare product description.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="Soap">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Soap Product 1" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Soap Product 1</h4>
+<p class="text-sm text-gray-600">Soap product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Soap Product 2" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Soap Product 2</h4>
+<p class="text-sm text-gray-600">Soap product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<img alt="Soap Product 3" class="w-full aspect-square object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Soap Product 3</h4>
+<p class="text-sm text-gray-600">Soap product description.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Hand Cream Product 1</h4>
+<p class="text-sm text-gray-600">Hand cream product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Hand Cream Product 2</h4>
+<p class="text-sm text-gray-600">Hand cream product description.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card transition transform duration-300">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">❮</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">❯</button>
+</div>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-900">Hand Cream Product 3</h4>
+<p class="text-sm text-gray-600">Hand cream product description.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function scrollCarousel(button, direction) {
+    const container = button.parentElement.querySelector('.carousel-images');
+    const scrollAmount = container.clientWidth;
+    container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+  }
+</script>
+<script>
+function scrollCarousel(button, direction) {
+  const container = button.parentElement.querySelector('.carousel-images');
+  const scrollAmount = container.clientWidth;
+  container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+</script><script>
+function scrollCarousel(button, direction) {
+  const container = button.parentElement.querySelector('.carousel-images');
+  const scrollAmount = container.clientWidth;
+  container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+</script></body>
 </html>
