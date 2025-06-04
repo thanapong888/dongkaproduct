@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
    ANG DONGKA Products
   </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-  <style>
+<script src="https://cdn.tailwindcss.com">
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
    body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9fafb;
@@ -45,8 +46,8 @@
 .carousel-images::-webkit-scrollbar { display: none; }
 .carousel-images { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
-  <script>
-   function openTab(evt, tabName) {
+<script>
+    function openTab(evt, tabName) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
@@ -56,21 +57,23 @@
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
-      document.getElementById(tabName).style.display = "block";
+      var activeTab = document.getElementById(tabName);
+      activeTab.style.display = "block";
       evt.currentTarget.className += " active";
+
+      // Reset and re-apply fade-in animation
+      const cards = activeTab.querySelectorAll(".product-card");
+      cards.forEach(card => card.classList.remove("reveal"));
+      cards.forEach((card, index) => {
+        setTimeout(() => card.classList.add("reveal"), index * 100);
+      });
     }
 
     window.onload = function () {
       document.getElementsByClassName("tablinks")[0].click();
-
-      // Reveal animation
-      const cards = document.querySelectorAll(".product-card");
-      cards.forEach((card, index) => {
-        setTimeout(() => card.classList.add("reveal"), index * 50);
-      });
     };
-  </script>
-  <style>
+    </script>
+<style>
    /* Scroll Reveal Animation */
 .reveal-up {
   opacity: 0;
@@ -87,7 +90,7 @@
   transform: scale(1.03);
 }
   </style>
-  <style>
+<style>
    /* Enhanced Tabs */
 .tab {
   display: flex;
@@ -112,6 +115,7 @@
 
 .tab button:hover {
   color: #3b7a57;
+  background-color: transparent !important;
 }
 
 .tab button.active {
@@ -130,1844 +134,1860 @@
   border-radius: 2px;
 }
   </style>
-  <style>
+<style>
    a.bg-[#0c4a6e]:hover {
   background-color: #3b7a57 !important;
 }
   </style>
- </head>
- <body class="py-12 fade-in" style="background-color: #fffaf0;">
-  <div class="max-w-7xl mx-auto px-4">
-   <div class="mb-6">
-    <a class="text-sm bg-[#0c4a6e] text-white px-4 py-2 rounded hover:bg-[#0a3a56] transition" href="http://www.angdongka.co.th/">
+<style>
+.product-hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-hover-effect:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+</style>
+
+
+
+
+
+
+
+</head>
+<body class="py-12 fade-in" style="background-color: #fffaf0;">
+<div class="max-w-7xl mx-auto px-4">
+<div class="mb-6">
+<a class="text-sm bg-[#0c4a6e] text-white px-4 py-2 rounded hover:bg-[#0a3a56] transition" href="http://www.angdongka.co.th/">
      ← Back to Main Website
     </a>
-   </div>
-   <h2 class="text-4xl text-center font-bold text-gray-900 mb-4">
+</div>
+<h2 class="text-4xl text-center font-bold text-gray-900 mb-4">
     ANG DONGKA (THAILAND) CO., LTD.
    </h2>
-   <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
+<p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
     We specialize in exporting high-quality Thai products to the global market. Our mission is to deliver excellence through innovation, natural ingredients, and traditional expertise.
    </p>
-   <div class="tab flex justify-center mb-8 flex-wrap gap-4">
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Body')">
+<div class="tab flex justify-center mb-8 flex-wrap gap-4">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Body')">
      Body Supports
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Skincare')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Skincare')">
      Natural Skincare Products
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Soap')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Soap')">
      Natural SOAP
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream')">
      Natural Hand Cream
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream3')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream3')">
      Organic Thai Rice
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream2')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream2')">
      Healthy Nature Beverages
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream1')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream1')">
      Organic Quick Meal
     </button>
-   </div>
-   <div class="tabcontent hidden" id="Body">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+<div class="tabcontent hidden" id="Body">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 4
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 5
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 6
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 7
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 8
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 9
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 10
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 11
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 12
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 13
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 14
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 15
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 16
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 17
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 18
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 19
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 20
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 21
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Body Support Product 22
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Support product description.
        </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <span class="font-medium">
+<div class="mt-2 text-sm text-gray-700">
+<span class="font-medium">
          Sizes:
         </span>
-        <ul class="list-disc list-inside">
-         <li>
+<ul class="list-disc list-inside">
+<li>
           S 26-30″
          </li>
-         <li>
+<li>
           M 30-34″
          </li>
-         <li>
+<li>
           L 34-38″
          </li>
-         <li>
+<li>
           XL 38-42″
          </li>
-         <li>
+<li>
           2XL 42-50″
          </li>
-         <li>
+<li>
           3XL 50-56″
          </li>
-         <li>
+<li>
           4XL 56-60″
          </li>
-        </ul>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</ul>
+</div>
+<div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="Skincare">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="Skincare">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 4
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 5
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 6
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 7
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 8
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="Soap">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="Soap">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Soap Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Soap product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Soap Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Soap product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Soap Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Soap product description.
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream3">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream3">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream2">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream2">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream1">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream1">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-  <script>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $1 USD</p></div>
+</div>
+</div>
+</div>
+</div>
+<script>
    function scrollCarousel(button, direction) {
     const container = button.parentElement.querySelector('.carousel-images');
     const scrollAmount = container.clientWidth;
     container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
   }
   </script>
-  <script>
+<script>
    function scrollCarousel(button, direction) {
   const container = button.parentElement.querySelector('.carousel-images');
   const scrollAmount = container.clientWidth;
   container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
   </script>
-  <script>
+<script>
    function scrollCarousel(button, direction) {
   const container = button.parentElement.querySelector('.carousel-images');
   const scrollAmount = container.clientWidth;
   container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
   </script>
-  <script>
+<script>
    // Scroll reveal on scroll
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(".reveal-up");
@@ -1986,7 +2006,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
   </script>
-  <style>
+<style>
    #interactive-bg {
     position: fixed;
     top: 0;
@@ -2004,11 +2024,11 @@ document.addEventListener("DOMContentLoaded", () => {
     display: block;
   }
   </style>
-  <div id="interactive-bg">
-   <canvas id="bubble-canvas">
-   </canvas>
-  </div>
-  <script>
+<div id="interactive-bg">
+<canvas id="bubble-canvas">
+</canvas>
+</div>
+<script>
    const canvas = document.getElementById('bubble-canvas');
   const ctx = canvas.getContext('2d');
   let width, height;
@@ -2058,12 +2078,9 @@ document.addEventListener("DOMContentLoaded", () => {
   createBubbles();
   drawBubbles();
   </script>
- 
 <div style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg" alt="Thai Flag" style="width: 40px; height: auto; box-shadow: 0 0 6px rgba(0,0,0,0.3);">
+<img alt="Thai Flag" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg" style="width: 40px; height: auto; box-shadow: 0 0 6px rgba(0,0,0,0.3);"/>
 </div>
-
-
 <style>
   .product-card {
     border: 2px solid transparent;
@@ -2074,8 +2091,6 @@ document.addEventListener("DOMContentLoaded", () => {
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
   }
 </style>
-
-
 <style>
   .fade-up {
     opacity: 0;
@@ -2104,6 +2119,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 </script>
+
+
 
 </body>
 </html>
