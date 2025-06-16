@@ -1,16 +1,43 @@
 <!DOCTYPE html>
+
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=1024" name="viewport"/>
-  <title>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1024" name="viewport"/>
+<title>
    ANG DONGKA Products
   </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
+<script src="https://cdn.tailwindcss.com">
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    var activeTab = document.getElementById(tabName);
+    evt.currentTarget.className += " active";
+
+    if (!activeTab.dataset.loaded) {
+      const cards = activeTab.querySelectorAll(".product-card");
+      cards.forEach((card, index) => {
+        setTimeout(() => card.classList.add("reveal"), index * 100);
+      });
+      activeTab.dataset.loaded = true;
+    }
+    activeTab.style.display = "block";
+}
+window.onload = function () {
+    document.getElementsByClassName("tablinks")[0].click();
+};
+</script>
+<style>body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9fafb;
     }
@@ -44,36 +71,7 @@
 
 .carousel-images::-webkit-scrollbar { display: none; }
 .carousel-images { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
-  <script>
-   function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      var activeTab = document.getElementById(tabName);
-      activeTab.style.display = "block";
-      evt.currentTarget.className += " active";
-
-      // Reset and re-apply fade-in animation
-      const cards = activeTab.querySelectorAll(".product-card");
-      cards.forEach(card => card.classList.remove("reveal"));
-      cards.forEach((card, index) => {
-        setTimeout(() => card.classList.add("reveal"), index * 100);
-      });
-    }
-
-    window.onload = function () {
-      document.getElementsByClassName("tablinks")[0].click();
-    };
-  </script>
-  <style>
-   /* Scroll Reveal Animation */
+/* Scroll Reveal Animation */
 .reveal-up {
   opacity: 0;
   transform: translateY(40px);
@@ -88,9 +86,7 @@
 .product-card:hover {
   transform: scale(1.03);
 }
-  </style>
-  <style>
-   /* Enhanced Tabs */
+/* Enhanced Tabs */
 .tab {
   display: flex;
   justify-content: center;
@@ -132,23 +128,17 @@
   background-color: #d4af37; /* Gold underline */
   border-radius: 2px;
 }
-  </style>
-  <style>
-   a.bg-[#0c4a6e]:hover {
+a.bg-[#0c4a6e]:hover {
   background-color: #3b7a57 !important;
 }
-  </style>
-  <style>
-   .product-hover-effect {
+.product-hover-effect {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product-hover-effect:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
 }
-  </style>
-  <style>
-   body {
+body {
   background-color: #fff8f0;
 }
 
@@ -176,10 +166,7 @@ button, .btn {
 button:hover, .btn:hover {
   background-color: #e0b96c;
 }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
+body {
   font-family: 'Poppins', sans-serif;
   color: #333;
 }
@@ -188,2153 +175,1031 @@ h1, h2, h3, h4 {
   font-weight: 600;
   color: #2a2a2a;
 }
-  </style>
-  <style>
-   p {
+p {
         font-family: 'Montserrat', sans-serif;
     }
-  </style>
- </head>
- <body class="py-12 fade-in" style="background-color: #fffaf0;">
-  <div class="max-w-7xl mx-auto px-4">
-   <div class="mb-6">
-    <a class="text-sm bg-[#0c4a6e] text-white px-4 py-2 rounded hover:bg-[#0a3a56] transition" href="http://www.angdongka.co.th/">
+#interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #fffaf0;
+  }
+
+  canvas#bubble-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+.product-card {
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  }
+  .product-card:hover {
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+p strong { font-weight: 700; }
+</style></head>
+<body class="py-12 fade-in" style="background-color: #fffaf0;">
+<div class="max-w-7xl mx-auto px-4">
+<div class="mb-6">
+<a class="text-sm bg-[#0c4a6e] text-white px-4 py-2 rounded hover:bg-[#0a3a56] transition" href="http://www.angdongka.co.th/">
      ← Back to Main Website
     </a>
-   </div>
-   <h2 class="text-4xl text-center font-bold text-gray-900 mb-4">
+</div>
+<h2 class="text-4xl text-center font-bold text-gray-900 mb-4">
     ANG DONGKA (THAILAND) CO., LTD.
    </h2>
-   <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
+<p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
     We specialize in exporting high-quality Thai products to the global market. Our mission is to deliver excellence through innovation, natural ingredients, and traditional expertise.
    </p>
-   <div class="tab flex justify-center mb-8 flex-wrap gap-4">
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Body')">
+<div class="tab flex justify-center mb-8 flex-wrap gap-4">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Body')">
      Body Supports
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Skincare')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Skincare')">
      Natural Skincare Products
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Soap')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'Soap')">
      Natural SOAP
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream')">
      Natural Hand Cream
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream3')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream3')">
      Organic Thai Rice
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream2')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream2')">
      Healthy Nature Beverages
     </button>
-    <button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream1')">
+<button class="tablinks bg-gray-200 hover:bg-[#0c4a6e] hover:text-white py-2 px-4 rounded" onclick="openTab(event, 'HandCream1')">
      Organic Quick Meal
     </button>
-   </div>
-   <div class="tabcontent hidden" id="Body">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/HW2kZxc8/56154bb9-751c-4d3f-823d-9f40b2c572f8.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/vHKMk6QT/63d244e4-8e12-40b3-bebf-ed34f9a30db9.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/VNF90d4P/Screenshot-2025-06-13-233235.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+<div class="tabcontent hidden" id="Body">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-[4/5] overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full"><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/pVKm2zv2/56154bb9-751c-4d3f-823d-9f40b2c572f8.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/fbk3ZPzF/63d244e4-8e12-40b3-bebf-ed34f9a30db9.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/3w6kwZWw/Screenshot-2025-06-13-233235.webp"/></div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-gray-900">
          LS LUMBAR SUPPORT
         </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
          Best Seller
         </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        🩺 Made from premium-grade elastic — strong, flexible, and highly breathable
-        <br/>
-        🪶 Lightweight and secure fit — comfortable to wear all day
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          XXL – 42–50"
-         </li>
-         <li>
-          XXXL – 50–56"
-         </li>
-         <li>
-          XXXXL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</div>
+<p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>Key Features</strong><br/>👫 Unisex product 📦 In Stock Ready to Ship<br/>🏭 100% Made in Thailand<br/>✅ Certified ISO 9001 &amp; ISO 13485<br/>🩺 Made from premium-grade elastic strong, flexible, Lightweight comfortable to wear all day.<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>💡 Recommended For</strong><br/>💢 Individuals with back, waist, or hip pain<br/>💻 Office workers those sitting for long hours (office syndrome)<br/>📦 People who frequently lift heavy objects<br/>👵 Elderly or those with weak muscles<br/>🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs<br/>🛌 Post-surgery recovery<br/>🧘 Physical therapy and rehabilitation<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>📏 Size Chart (Waist circumference in inches)</strong><br/>S – 26–30"<br/>M – 30–34"<br/>L – 34–38"<br/>XL – 38–42"<br/>2XL – 42–50"<br/>3XL – 50–56"<br/>4XL – 56–60"<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🧼 Care Instructions</strong><br/>🧴 Soak in mild detergent for 30 minutes<br/>✋ Hand wash gently<br/>💧 Rinse thoroughly with clean water<br/>🌤️ Dry in the shade<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🚫 Do Not</strong><br/>❌ Machine wash<br/>❌ Dry under direct sunlight<br/>❌ Iron / Use brush<br/>❌ Twist or wring<br/>❌ Wear while sleeping<br/></p><div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $20 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/vZ5FnDh3/f36f51f6-fcca-4ccc-975d-a3a7cd5ae873.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Vkqp6psh/1749831782489.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/J7BL8TXf/23329eb6-3957-4c35-b1cf-b632564dad52.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-[4/5] overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full"><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/D0gJ7JDf/f36f51f6-fcca-4ccc-975d-a3a7cd5ae873.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/W3mt7qsm/23329eb6-3957-4c35-b1cf-b632564dad52.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/NG459XJB/1749831782489.webp"/></div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         ECO BACK SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Affordable Model
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        🩺 Made from premium-grade elastic — strong, flexible, and highly breathable
-        <br/>
-        🪶 Lightweight and secure fit — comfortable to wear all day
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        🚗 Long-distance drivers, warehouse workers, factory staff, homemakers
-        <br/>
-        💼 Office syndrome or sitting in the same position for long periods
-        <br/>
-        🧓 Seniors or individuals with weak muscles
-        <br/>
-        🛠️ Laborers, machine movers, and those doing physical work
-        <br/>
-        🏥 Nurses, caregivers, post-surgery recovery, and physical therapy patients
-        <br/>
-        ⚠️ People with back, waist, or hip pain
-        <br/>
-        📦 Those who regularly lift heavy objects
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 20–26"
-         </li>
-         <li>
-          M – 26–30"
-         </li>
-         <li>
-          L – 30–36"
-         </li>
-         <li>
-          XL – 36–42"
-         </li>
-         <li>
-          XXL – 42–48"
-         </li>
-         <li>
-          XXXL – 48–54"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</div>
+<div class="p-4 product-hover-effect">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-gray-900">ECO BACK SUPPORT</h4>
+<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Affordable Model</span>
+</div>
+<p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>Key Features</strong><br/>👫 Unisex product 📦 In Stock Ready to Ship<br/>🏭 100% Made in Thailand<br/>✅ Certified ISO 9001 &amp; ISO 13485<br/>🩺 Made from premium-grade elastic strong, flexible, Lightweight comfortable to wear all day.<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>💡 Recommended For</strong><br/>
+🚗 Long-distance drivers, warehouse workers, factory staff, homemakers<br/>
+💼 Office syndrome or sitting in the same position for long periods<br/>
+🧓 Seniors or individuals with weak muscles<br/>
+🛠️ Laborers, machine movers, and those doing physical work<br/>
+🏥 Nurses, caregivers, post-surgery recovery, and physical therapy patients<br/>
+⚠️ People with back, waist, or hip pain<br/>
+📦 Those who regularly lift heavy objects<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>📏 Size Chart (Waist circumference in inches)</strong><br/>
+S – 20–26"<br/>
+M – 26–30"<br/>
+L – 30–36"<br/>
+XL – 36–42"<br/>
+2XL – 42–48"<br/>
+3XL – 48–54"<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🧼 Care Instructions</strong><br/>🧴 Soak in mild detergent for 30 minutes<br/>✋ Hand wash gently<br/>💧 Rinse thoroughly with clean water<br/>🌤️ Dry in the shade<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🚫 Do Not</strong><br/>❌ Machine wash<br/>❌ Dry under direct sunlight<br/>❌ Iron / Use brush<br/>❌ Twist or wring<br/>❌ Wear while sleeping<br/></p><div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $12 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
-        Wholesale price: Please contact us
-       </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/VNF90d4P/Screenshot-2025-06-13-233235.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span></div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $12 USD</p>
+<p class="text-sm text-red-700 font-semibold mt-1">Wholesale price: Please contact us</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-[4/5] overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full"><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/QtbD3zQT/f9df1d8d-8215-4582-aab4-a078a8b8ade4.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/jqF97KSj/542e4ff6-4d03-48eb-9b0a-e8df5cea6245.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/QtM4FnL5/1def40ea-5f23-4fa1-9f4d-8807d0cdf02e.webp"/></div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</div>
+<div class="p-4 product-hover-effect">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-gray-900">Posture Support Shirt LS14</h4>
+<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Flagship Model</span>
+</div>
+<p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>Key Features</strong><br/>👫 Unisex product 📦 In Stock Ready to Ship<br/>🏭 100% Made in Thailand<br/>✅ Certified ISO 9001 &amp; ISO 13485<br/>🩺 Made from premium-grade elastic strong, flexible, Lightweight comfortable to wear all day.<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>💡 Recommended For</strong><br/>
+🧍‍♂️ Upper and lower back pain<br/>
+🎯 Posture correction – rounded shoulders, hunchback<br/>
+💼 Prolonged sitting – office syndrome<br/>
+🏋️‍♂️ Heavy lifting – factory workers, housekeepers<br/>
+👵 Elderly individuals<br/>
+🧘 Muscle weakness / spinal degeneration<br/>
+🤕 Recovery after injury or surgery<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>📏 Size Chart (Waist circumference in inches)</strong><br/>
+S – 27–32"<br/>
+M – 32–36"<br/>
+L – 36–40"<br/>
+XL – 40–44"<br/>
+2XL – 44–48"<br/>
+3XL – 48–52"<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🧼 Care Instructions</strong><br/>🧴 Soak in mild detergent for 30 minutes<br/>✋ Hand wash gently<br/>💧 Rinse thoroughly with clean water<br/>🌤️ Dry in the shade<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🚫 Do Not</strong><br/>❌ Machine wash<br/>❌ Dry under direct sunlight<br/>❌ Iron / Use brush<br/>❌ Twist or wring<br/>❌ Wear while sleeping<br/></p><div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
-        Wholesale price: Please contact us
-       </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300"></span></div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $35 USD</p>
+<p class="text-sm text-red-700 font-semibold mt-1">Wholesale price: Please contact us</p>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-[4/5] overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/SNJtz44b/dd243938-433e-4f20-b026-1b9c489ab022.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/ydLvkQrN/0f03e966-dccd-4940-92a7-0899fe5bda55.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/76HKP89c/Blue-Good-Night-Flyer.webp"/></div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</div>
+<div class="p-4 product-hover-effect">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-gray-900">MINI BACK SUPPORT</h4>
+<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ergonomic</span>
+</div>
+<p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>Key Features</strong><br/>👫 Unisex product 📦 In Stock Ready to Ship<br/>🏭 100% Made in Thailand<br/>✅ Certified ISO 9001 &amp; ISO 13485<br/>🩺 Made from premium-grade elastic strong, flexible, Lightweight comfortable to wear all day.<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>💡 Recommended For</strong><br/>
+💢 Back, waist, or hip pain<br/>
+💺 Long hours of sitting – office syndrome<br/>
+🧳 Heavy lifting – housekeepers, factory workers, drivers<br/>
+👵 Elderly individuals<br/>
+🧬 Muscle weakness, spinal degeneration, herniated discs<br/>
+🏥 Post-surgery recovery or physical therapy support<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>📏 Size Chart (Waist in inches):</strong><br/>
+S – 26–30"<br/>
+M – 30–34"<br/>
+L – 34–38"<br/>
+XL – 38–42"<br/>
+2XL – 42–50"<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🧼 Care Instructions</strong><br/>🧴 Soak in mild detergent for 30 minutes<br/>✋ Hand wash gently<br/>💧 Rinse thoroughly with clean water<br/>🌤️ Dry in the shade<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🚫 Do Not</strong><br/>❌ Machine wash<br/>❌ Dry under direct sunlight<br/>❌ Iron / Use brush<br/>❌ Twist or wring<br/>❌ Wear while sleeping<br/></p><div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-black border border-gray-300">
+</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $14 USD</p>
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-[4/5] overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full"><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/ryHGjSJ0/4af36bda-5224-4710-8267-9d4cead93863-1.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/GmwFwd6b/a9204779-ff0a-4d2e-872d-967c2d4a5930.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/XYfwnt0d/12476833-530c-4453-9f5f-26c49fb5d112-1.webp"/></div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</div>
+<div class="p-4 product-hover-effect">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-gray-900">BACK POSTURE SUPPORT</h4>
+<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ergonomic</span>
+</div>
+<p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>Key Features</strong><br/>👫 Unisex product 📦 In Stock Ready to Ship<br/>🏭 100% Made in Thailand<br/>✅ Certified ISO 9001 &amp; ISO 13485<br/>🩺 Made from premium-grade elastic strong, flexible, Lightweight comfortable to wear all day.<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>💡 Recommended For</strong><br/>💢 Individuals with back, waist, or hip pain<br/>💻 Office workers those sitting for long hours (office syndrome)<br/>📦 People who frequently lift heavy objects<br/>👵 Elderly or those with weak muscles<br/>🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs<br/>🛌 Post-surgery recovery<br/>🧘 Physical therapy and rehabilitation<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>📏 Size Chart (Waist circumference in inches)</strong><br/>S – 26–30"<br/>M – 30–34"<br/>L – 34–38"<br/>XL – 38–42"<br/>2XL – 42–50"<br/>3XL – 50–56"<br/>4XL – 56–60"<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🧼 Care Instructions</strong><br/>🧴 Soak in mild detergent for 30 minutes<br/>✋ Hand wash gently<br/>💧 Rinse thoroughly with clean water<br/>🌤️ Dry in the shade<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🚫 Do Not</strong><br/>❌ Machine wash<br/>❌ Dry under direct sunlight<br/>❌ Iron / Use brush<br/>❌ Twist or wring<br/>❌ Wear while sleeping<br/></p><div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $23 USD</p>
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-[4/5] overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/rwHsj1Gg/26f2c4c9-6710-4fb4-82ac-83cff1967935.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/tRVWPf97/3.webp"/><img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/BQTF7KL0/4.webp"/></div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
+</div>
+<div class="p-4 product-hover-effect">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-gray-900">KNEE SUPPORT WITH SPRING</h4>
+<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ergonomic</span>
+</div>
+<p>📌 Price is for 1 piece – To order a pair, please select 2 units</p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>Key Features</strong><br/>👫 Unisex product 📦 In Stock Ready to Ship<br/>🏭 100% Made in Thailand<br/>✅ Certified ISO 9001 &amp; ISO 13485<br/>🩺 Made from premium-grade elastic strong, flexible, Lightweight comfortable to wear all day.<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>💡 Recommended For</strong><br/>
+🤕 Relieves knee pain or swelling from heavy use<br/>
+🦴 Helps with arthritis and joint degeneration<br/>
+🛡️ Supports injured muscles and ligaments<br/>
+🏃‍♀️ Suitable for sports and exercise<br/>
+🔁 Can be worn on both left &amp; right knees<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>📏 Size Guide (Measure around the kneecap):</strong><br/>
+S – 13–15"<br/>
+M – 15–17"<br/>
+L – 17–19"<br/>
+XL – 19–21"<br/>
+2XL – 21–23"<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🧼 Care Instructions</strong><br/>🧴 Soak in mild detergent for 30 minutes<br/>✋ Hand wash gently<br/>💧 Rinse thoroughly with clean water<br/>🌤️ Dry in the shade<br/></p><p class="text-sm text-gray-600" style="margin-top: 1rem;"><strong>🚫 Do Not</strong><br/>❌ Machine wash<br/>❌ Dry under direct sunlight<br/>❌ Iron / Use brush<br/>❌ Twist or wring<br/>❌ Wear while sleeping<br/></p><div class="mt-2 flex gap-2 items-center">
+<span class="text-sm font-medium text-gray-700">
          Colors:
         </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<div class="flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
+</span>
+</div>
+</div>
+<p class="text-sm text-green-700 font-semibold mt-1">Retail Price: $14 USD</p>
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="Skincare">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
-         Colors:
-        </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
-        Wholesale price: Please contact us
-       </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
-        ❮
-       </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
-        ❯
-       </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
-         Colors:
-        </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
-        Wholesale price: Please contact us
-       </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
-        ❮
-       </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
-        ❯
-       </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
-         Colors:
-        </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
-        Wholesale price: Please contact us
-       </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-[4/5] overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
-        ❮
-       </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
-        ❯
-       </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <div class="flex items-center justify-between">
-        <h4 class="text-lg font-bold text-gray-900">
-         LS LUMBAR SUPPORT
-        </h4>
-        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-         Best Seller
-        </span>
-       </div>
-       <p class="text-sm text-gray-600">
-        👫 Unisex — Suitable for both men and women
-        <br/>
-        📦 In Stock &amp; Ready to Ship
-        <br/>
-        🏭 100% Made in Thailand by a certified Thai factory
-        <br/>
-        ✅ Certified ISO 9001 &amp; ISO 13485
-        <br/>
-        <br/>
-        <strong>
-         💡 Recommended For
-        </strong>
-        <br/>
-        💢 Individuals with back, waist, or hip pain
-        <br/>
-        💻 Office workers or those sitting for long hours (office syndrome)
-        <br/>
-        📦 People who frequently lift heavy objects — such as factory workers, housekeepers, drivers
-        <br/>
-        👵 Elderly or those with weak muscles
-        <br/>
-        🧬 Conditions like muscle inflammation, spinal degeneration, or herniated discs
-        <br/>
-        🛌 Post-surgery recovery
-        <br/>
-        🧘 Physical therapy and rehabilitation
-        <br/>
-        <br/>
-        <br/>
-       </p>
-       <div class="mt-2 text-sm text-gray-700">
-        <strong class="font-medium">
-         📏 Size Chart (Waist circumference in inches)
-        </strong>
-        <ul class="list-disc list-inside">
-         <li>
-          S – 26–30"
-         </li>
-         <li>
-          M – 30–34"
-         </li>
-         <li>
-          L – 34–38"
-         </li>
-         <li>
-          XL – 38–42"
-         </li>
-         <li>
-          2XL – 42–50"
-         </li>
-         <li>
-          3XL – 50–56"
-         </li>
-         <li>
-          4XL – 56–60"
-         </li>
-        </ul>
-       </div>
-       <div class="mt-4 text-sm text-gray-700">
-        <p>
-         🧼 Care Instructions
-        </p>
-        <p>
-         1️⃣ Soak in laundry detergent for about 30 minutes
-        </p>
-        <p>
-         2️⃣ Gently hand wash
-        </p>
-        <p>
-         3️⃣ Rinse with clean water
-        </p>
-        <p>
-         4️⃣ Air dry in the shade / under soft sunlight / in a well-ventilated area
-        </p>
-        <br/>
-        <p>
-         🚫 Do Not
-        </p>
-        <p>
-         ❌ Machine wash
-        </p>
-        <p>
-         ❌ Dry under direct sunlight
-        </p>
-        <p>
-         ❌ Iron / Use brush
-        </p>
-        <p>
-         ❌ Twist or wring
-        </p>
-        <p>
-         ❌ Wear while sleeping
-        </p>
-       </div>
-       <div class="mt-2 flex gap-2 items-center">
-        <span class="text-sm font-medium text-gray-700">
-         Colors:
-        </span>
-        <div class="flex items-center gap-1">
-         <span class="w-5 h-5 rounded-full bg-black border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-gray-400 border border-gray-300">
-         </span>
-         <span class="w-5 h-5 rounded-full bg-amber-100 border border-gray-300">
-         </span>
-        </div>
-       </div>
-       <p class="text-sm text-green-700 font-semibold mt-1">
-        Retail Price: $20 USD
-       </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
-        Wholesale price: Please contact us
-       </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="Skincare">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
-        ❮
-       </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
-        ❯
-       </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 4
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 5
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 6
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 7
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Skincare Product 8
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Skincare product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="Soap">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="Soap">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Soap Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Soap product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Soap Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Soap product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Soap Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Soap product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream3">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream3">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream2">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream2">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="tabcontent hidden" id="HandCream1">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+</div>
+</div>
+<div class="tabcontent hidden" id="HandCream1">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 1
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 2
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-     <div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
-      <div class="relative w-full aspect-square overflow-hidden group">
-       <div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
-        <img class="w-full snap-center shrink-0 object-cover" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
-       </div>
-       <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden product-card shadow-xl hover:shadow-2xl transition transform duration-300 reveal-up">
+<div class="relative w-full aspect-square overflow-hidden group">
+<div class="carousel-images flex overflow-x-auto scroll-smooth snap-x snap-mandatory h-full w-full">
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/N0Jyq9cB/240109.jpg"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/Xv0LGPGp/31.png"/>
+<img class="w-full snap-center shrink-0 object-cover" loading="lazy" src="https://i.postimg.cc/d01XyksG/assets-V2-8y-BORdm-CQKWm9k-Sju93-C-asset.png"/>
+</div>
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, -1)">
         ❮
        </button>
-       <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-1 rounded-full shadow-md z-10" onclick="scrollCarousel(this, 1)">
         ❯
        </button>
-      </div>
-      <div class="p-4 product-hover-effect">
-       <h4 class="text-lg font-bold text-gray-900">
+</div>
+<div class="p-4 product-hover-effect">
+<h4 class="text-lg font-bold text-gray-900">
         Hand Cream Product 3
        </h4>
-       <p class="text-sm text-gray-600">
+<p class="text-sm text-gray-600">
         Hand cream product description.
        </p>
-       <p class="text-sm text-green-700 font-semibold mt-1">
+<p class="text-sm text-green-700 font-semibold mt-1">
         Retail Price: $1 USD
        </p>
-       <p class="text-sm text-red-700 font-semibold mt-1">
+<p class="text-sm text-red-700 font-semibold mt-1">
         Wholesale price: Please contact us
        </p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-  <script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
    function scrollCarousel(button, direction) {
     const container = button.parentElement.querySelector('.carousel-images');
     const scrollAmount = container.clientWidth;
     container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
   }
   </script>
-  <script>
+<script>
    function scrollCarousel(button, direction) {
   const container = button.parentElement.querySelector('.carousel-images');
   const scrollAmount = container.clientWidth;
   container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
   </script>
-  <script>
+<script>
    function scrollCarousel(button, direction) {
   const container = button.parentElement.querySelector('.carousel-images');
   const scrollAmount = container.clientWidth;
   container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
   </script>
-  <script>
+<script>
    // Scroll reveal on scroll
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(".reveal-up");
@@ -2353,29 +1218,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
   </script>
-  <style>
-   #interactive-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #fffaf0;
-  }
-
-  canvas#bubble-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  </style>
-  <div id="interactive-bg">
-   <canvas id="bubble-canvas">
-   </canvas>
-  </div>
-  <script>
+<div id="interactive-bg">
+<canvas id="bubble-canvas">
+</canvas>
+</div>
+<script>
    const canvas = document.getElementById('bubble-canvas');
   const ctx = canvas.getContext('2d');
   let width, height;
@@ -2425,32 +1272,10 @@ document.addEventListener("DOMContentLoaded", () => {
   createBubbles();
   drawBubbles();
   </script>
-  <div style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
-   <img alt="Thai Flag" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg" style="width: 40px; height: auto; box-shadow: 0 0 6px rgba(0,0,0,0.3);"/>
-  </div>
-  <style>
-   .product-card {
-    border: 2px solid transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-  }
-  .product-card:hover {
-    border: 2px solid #d4af37;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-  }
-  </style>
-  <style>
-   .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  </style>
-  <script>
+<div style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+<img alt="Thai Flag" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg" style="width: 40px; height: auto; box-shadow: 0 0 6px rgba(0,0,0,0.3);"/>
+</div>
+<script>
    document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -2466,5 +1291,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   </script>
- </body>
+</body>
 </html>
